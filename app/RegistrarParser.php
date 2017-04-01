@@ -23,11 +23,20 @@ class RegistrarParser
 
     static $term = "201620";
 
-    public function getAllHtmlPages(){
+    public function getAllHtmlPagesAndUpdate(){
+
+        $time_start = microtime(true);
+
         $html = [];
         foreach(RegistrarParser::$departments as $department){
-            $html[] = $this->getHtmlPage(RegistrarParser::$term, $department);
+            $this->updateCourses($this->getHtmlPage(RegistrarParser::$term, $department));
         }
+
+        $time_end = microtime(true);
+        $time = $time_end - $time_start;
+
+        echo "<br><b>$time</b>";
+
         return $html;
     }
 
@@ -48,6 +57,110 @@ class RegistrarParser
 
         //$context = stream_context_create($response);
 
-        return $response->getBody()->getContents();
+        return HtmlDomParser::str_get_html($response->getBody());
+    }
+
+    public function updateCourses($html){
+
+        $prevCrn = "0";
+        $counter = 0;
+
+        foreach( $html->find('.trow') as $section){
+            $keys = array("SEC", "ACTIVITY", "CRN", "NAME", "INSTRUCTOR", "DAY", "TIME", "LOCATION", "STATUS");
+
+
+            $courseArr = array();
+
+            //counter
+            $i = 0;
+            foreach($section->find('.tdata') as $attr){
+                //split all by ':'
+                $info = explode(":", $attr->plaintext);
+
+                $courseArr[$keys[$i]] = trim($info[1]);
+
+                $i++;
+            }
+
+            if($prevCrn == $courseArr["CRN"] && $counter > 0)
+                continue;
+
+            //get course
+            $course = Course::where('crn', '=', (integer)$courseArr["CRN"])->first();
+
+            $changedStatus = false;
+
+            //replace open by 1, and closed by 0
+            $status = -1;
+            if($courseArr["STATUS"] == "Open")
+                $status = 1;
+            else
+                $status = 0;
+
+            if($course->status != $status){
+                $course->status = $status;
+                $changedStatus = true;
+            }
+
+            if($changedStatus){
+                try {
+                    $course->save();
+
+                } catch (\Illuminate\Database\QueryException $e) {
+                    dd($e);
+                }
+            }
+
+            $prevCrn = $courseArr["CRN"];
+            $counter++;
+
+        }
+
+    }
+
+    public function buildCoursesTable($html){
+        $prevCrn = "0";
+        $counter = 0;
+        foreach( $html->find('.trow') as $section){
+            $keys = array("SEC", "ACTIVITY", "CRN", "NAME", "INSTRUCTOR", "DAY", "TIME", "LOCATION", "STATUS");
+
+
+            $courseArr = array();
+
+            //counter
+            $i = 0;
+            foreach($section->find('.tdata') as $attr){
+                //split all by ':'
+                $info = explode(":", $attr->plaintext);
+
+                $courseArr[$keys[$i]] = trim($info[1]);
+
+                $i++;
+            }
+
+            if($prevCrn == $courseArr["CRN"] && $counter > 0)
+                continue;
+
+//            if($courseArr["ACTIVITY"] == "LAB")
+//                continue;
+
+            $course = new Course();
+            if($courseArr["STATUS"] == "Open")
+                $course->status = 1;
+            else
+                $course->status = 0;
+            $course->name = $courseArr["NAME"];
+            $course->time = $courseArr["TIME"];
+            $course->days = $courseArr["DAY"];
+            $course->crn = (integer)$courseArr["CRN"];
+            try {
+                $course->save();
+
+            } catch (\Illuminate\Database\QueryException $e) {
+                dd($e);
+            }
+            $prevCrn = $courseArr["CRN"];
+            $counter++;
+        }
     }
 }

@@ -41,9 +41,11 @@ Route::get('/', function () {
 //        echo $course->requests;
 //        echo '<br>';
 //    }
-    $registrarParser = new RegistrarParser();
-    $html = $registrarParser->getAllHtmlPages();
-    foreach ($html as $dept)
-        echo $dept;
+//    $registrarParser = new RegistrarParser();
+//    $html = $registrarParser->getAllHtmlPages();
+//    foreach ($html as $dept)
+//        echo $dept;
     return view('welcome');
 });
+
+Route::get('/update', ['uses' => 'registrarController@update']);
