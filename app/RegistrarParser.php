@@ -9,7 +9,6 @@
 namespace App;
 
 
-use Sunra\PhpSimple\HtmlDomParser;
 use GuzzleHttp\Client;
 class RegistrarParser
 {
@@ -49,5 +48,9 @@ class RegistrarParser
         //$context = stream_context_create($response);
 
         return $response->getBody()->getContents();
+    }
+
+    public function update(){
+
     }
 }
