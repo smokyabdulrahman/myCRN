@@ -32,11 +32,11 @@ Route::get('/', function () {
 //    $request = new Request();
 //    $request->email = 'b@b.b';
 //    $request->phone = '055465';
-//    $request->course_id = 35422;
+//    $request->course_id = 25470;
 //    $request->save();
 
-//    $courses = \App\Course::where('status', '=', '1')->with('requests')->get();
-//
+//    $courses = \App\Course::has('requests')->where('status', '=', '1')->get();
+//    $courses->load('requests');
 //    foreach ($courses as $course){
 //        echo $course->requests;
 //        echo '<br>';
@@ -45,7 +45,9 @@ Route::get('/', function () {
 //    $html = $registrarParser->getAllHtmlPages();
 //    foreach ($html as $dept)
 //        echo $dept;
+
     return view('welcome');
 });
 
 Route::get('/update', ['uses' => 'registrarController@update']);
+Route::get('/notify', ['uses' => 'registrarController@notify']);

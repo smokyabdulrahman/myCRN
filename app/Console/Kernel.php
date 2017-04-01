@@ -2,6 +2,9 @@
 
 namespace App\Console;
 
+use App\Course;
+use App\RegistrarParser;
+use App\Request;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -26,6 +29,19 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')
         //          ->hourly();
+
+        //update courses
+        $schedule->call(function(){
+            $registrar = new RegistrarParser();
+            $registrar->getAllHtmlPagesAndUpdate();
+        })->everyMinute();
+        //check for requests and send emails
+        $schedule->call(function(){
+            //sleep for 30 secs
+            sleep(30);
+            //then do the job
+            Request::notifyOpenCourses();
+        })->everyMinute();
     }
 
     /**
