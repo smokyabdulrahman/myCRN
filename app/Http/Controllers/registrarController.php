@@ -16,4 +16,9 @@ class registrarController extends Controller
     public function notify(){
         \App\Request::notifyOpenCourses();
     }
+
+    public function build(){
+        $registrar = new RegistrarParser();
+        return $registrar->getAllHtmlPagesAndBuild();
+    }
 }

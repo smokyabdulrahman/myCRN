@@ -23,6 +23,23 @@ class RegistrarParser
 
     static $term = "201620";
 
+    public function getAllHtmlPagesAndBuild(){
+
+        $time_start = microtime(true);
+
+        $html = [];
+        foreach(RegistrarParser::$departments as $department){
+            $this->buildCoursesTable($this->getHtmlPage(RegistrarParser::$term, $department));
+        }
+
+        $time_end = microtime(true);
+        $time = $time_end - $time_start;
+
+        echo "<br><b>$time</b>";
+
+        return $html;
+    }
+
     public function getAllHtmlPagesAndUpdate(){
 
         $time_start = microtime(true);

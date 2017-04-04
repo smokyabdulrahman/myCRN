@@ -50,4 +50,5 @@ Route::get('/', function () {
 });
 
 Route::get('/update', ['uses' => 'registrarController@update']);
+Route::get('/build', ['uses' => 'registrarController@build']);
 Route::get('/notify', ['uses' => 'registrarController@notify']);
