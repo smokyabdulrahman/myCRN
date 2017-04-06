@@ -53,16 +53,17 @@ class Request extends Model
 // change this to 0 if the site is going live
             $mail->SMTPDebug = 2;
             $mail->Debugoutput = 'html';
-            $mail->Host = 'smtp.gmail.com';
+            $mail->Host = '	smtp.1and1.com';
             $mail->Port = 587;
             $mail->SMTPSecure = 'tls';
 
             //use SMTP authentication
             $mail->SMTPAuth = true;
 //Username to use for SMTP authentication
-            $mail->Username = "a.alrahama@gmail.com";
+            $mail->Username = "abdulrahman_rahma.me_0@mailboxbackup.info";
             $mail->Password = '$moky1417';
-            $mail->addAddress($request->email, 'Somebody');
+
+            $mail->addAddress($request->requests[0]->email, 'Somebody');
             $mail->Subject = 'Open!';
             // $message is gotten from the form
             $mail->msgHTML("<h1>$request</h1>
