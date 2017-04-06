@@ -91,5 +91,18 @@
                 </div>
             </div>
         </div>
+        <form action="{{ route('createRequest') }}"   method="post">
+            {{ csrf_field() }}
+            CRN:<br>
+            <input type="text" name="crn" value="23566">
+            <br>
+            Your name:<br>
+            <input type="text" name="phone" value="055666">
+            <br>
+            Your email:<br>
+            <input type="email" name="email" value="a.a">
+            <br><br>
+            <input type="submit" value="Submit">
+        </form>
     </body>
 </html>

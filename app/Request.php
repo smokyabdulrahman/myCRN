@@ -20,7 +20,7 @@ class Request extends Model
      * @var array
      */
     protected $fillable = [
-        'email', 'phone', 'course_crn'
+        'email', 'phone', 'course_id'
     ];
 
     /**
@@ -37,14 +37,22 @@ class Request extends Model
         $requests->load('requests');
 
         foreach ($requests as $request){
-            Mail::send('emails.openCourse', ['request' => $request], function ($message)
-            {
+//            Mail::queue('emails.openCourse', ['request' => $request], function ($message)
+//            {
+//
+//                $message->from('a.alrahama@gmail.com', 'Christian Nwamba');
+//
+//                $message->to('a.alrahama@gmail.com');
+//
+//            });
 
-                $message->from('a.alrahama@gmail.com', 'Christian Nwamba');
+            $to      = 'a.alrahama@gmail.com';
+            $subject = 'the subject';
+            $message = 'hello';
+            $headers = 'X-Mailer: PHP/' . phpversion();
 
-                $message->to('a.alrahama@gmail.com');
+            mail($to, $subject, $message, $headers);
 
-            });
         }
     }
 }
