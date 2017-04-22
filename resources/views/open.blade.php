@@ -66,24 +66,21 @@
     </head>
     <body>
         <div class="flex-center position-ref full-height">
+            @if (Route::has('login'))
+                <div class="top-right links">
+                    @if (Auth::check())
+                        <a href="{{ url('/home') }}">Home</a>
+                    @else
+                        <a href="{{ url('/login') }}">Login</a>
+                        <a href="{{ url('/register') }}">Register</a>
+                    @endif
+                </div>
+            @endif
+
             <div class="content">
                 <div class="title m-b-md">
-                    Welcome to CRNotify
+                    The section is already open! no need to remind you.
                 </div>
-                <p>Enter the closed section CRN and your email down below, to get notified as soon as the section opens!</p>
-                <form action="{{ route('createRequest') }}"   method="post">
-                    {{ csrf_field() }}
-                    CRN:<br>
-                    <input type="text" name="crn" value="23566">
-                    <br>
-                    Your name:<br>
-                    <input type="text" name="phone" value="055666">
-                    <br>
-                    Your email:<br>
-                    <input type="email" name="email" value="a.a">
-                    <br><br>
-                    <input type="submit" value="Submit">
-                </form>
             </div>
         </div>
     </body>
