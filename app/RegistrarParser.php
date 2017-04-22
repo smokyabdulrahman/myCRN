@@ -21,7 +21,7 @@ class RegistrarParser
     "MATH","ME","MGT","PE","PETE",
     "PHYS","PSE","SE"];
 
-    static $term = "201620";
+    static $term = "201710";
 
     public function getAllHtmlPagesAndBuild(){
 
@@ -64,9 +64,9 @@ class RegistrarParser
                 '__EVENTTARGET' => 'ctl00$CntntPlcHldr$ddlDept',
                 '__EVENTARGUMENT' => '',
                 '__LASTFOCUS' => '',
-                '__VIEWSTATE' => 'hhfr7EY+cHf/jFNZSbXyvAuks+WklVUCSME7AMQyo3emYCFOvXKl+8Aee4RBkaQZ54Gpg2vUpElGmNw5vJglzLX6izqTVaWd8a4MntrTF8DX8XQ+raz412Is1BI6cNkxvxbnHDIKUDEwFlEOCDDFaQ==',
+                '__VIEWSTATE' => 'Riqbe06pw2Oy7plngEThHDnFboT3N4w8I9hpN0EG2a0U7PGVXizdngjCZR91XN1aXN5dBNLG6xN35UOOsgSe9ai+pLj33+AefDQsZBOlVkQTjvVfsM/O6e9vJvuw80HSrl8hPD4Q38tDINrCpJjHWg==',
                 '__VIEWSTATEGENERATOR' => '0AFBBFE1',
-                '__EVENTVALIDATION' => '+UFxprmMbaW3zhdg+NPVdVhLmAzfx0MVfAHCjTiflHsqEM2pK5ZUBJF9fYRievgrIIfUN9zwuSmnMwpshe8bcTa1p1k651Kh78RS2dczGdrwuXXAApGHsxMjENtTJjxQyvm5hM/XfEF8R2PfQzFdoEsMsdp6j//mq9nZi0BFYMuiyqFbBQkQAicUi6ykNkW7rKMH+0THSnEjWOX+i2F/gDueqj3J4KlXVcW3lF6AbNFKDwWMxpUZJ7tOXYq7PPfcXaWsgx7qQVUWyFvhbpWiCiVdkfEsjPAs/FcukzJPGqKN2KGdXo0Tg3bKAa2J0AYJu9XRMW+W3PTIl9xr/74xi4iSnim/p2y4bLUBLjkrSdNsCchcGFDXQvMo9EOCNtgJQG+uqcyKTLCC0aSsO0LD/IQV7hLLFMCWhQbNTczRwtkjxUWB7SdhSYp3utWWhgP6Z5XvQb6yyugddxeqlKhxRg3QoiM5Wp9raEnDzVARMA/K9scR6m68KGhEK1wMuCoYeKHt+WoSURuYT2A2iHu+nKkYAgDZRF8M6HuD8IhwDwNjbDrYUCIrndEsRILsWlMeWr/6HZagJImJCKybmJtomx7107Uc0y6ibCadBwbl2AyuDp4Bp8rA1BvAWo2liZF1oIlo3KuQDSV7eWCavakp8Okgof4H0ytc3CvVJ4w/HXdy+icOR4CVAQXP+YJ10Z01MNuOcX1m8KNvIYMY4Za4gSW7hwpHMdEewYBFkmuudbOyMzDPLwBnY9iFeixHGrog4ZBygQcPTixwzk5YVPT91xfnmFCXlsGLMrFH9yaK4X72xZigUXW7jJbkkgst2MoepsBwibwbtPUeoQ8tGBvYKFO6vPHpd2c41bpW4FnhNO0=',
+                '__EVENTVALIDATION' => 'NGR7oCt2y/JlQdBHn7c0GqneQGjMm8UBb7pOAwBwwmc8xVLtFRyJ6aJzTKXOK4TawnPQeXCBxbPvRu8eiGwLEdhAyLFKE4RAhNDAuz2XL0CNORXQrocw7hGTxJHhqcfarAZcnTwQCYSbGtUzk1rJgZ0xsCfs3jBKHa9TtMXyioO3zjXuQ3DGPN2j9LPjw1rEq/6/K0+F+auZo0LA0wHoKG+RxERmpNtAbjDIWgASZVp5EraxZ5q0lPhu6kUQCEoQs29et90oMfZIdll0hULVW7i9qx2zK86Op6akgT9ZiLwspV0IpsgUdAuiwnIwZLMqrXSmSJ+G5ogeAvCgVkK76Q87TovfNbNLc3WB1kqzJOes9FJjfMGJkZgSwkz/a9iZXDssMHhM3RELkkJCweIU364xu+5W/K5QUEwyDRyvUKucBXTLt32E76tHIn2cb2VVp2MRbrd5+rkd4Sh5BVNpEG2peLpgE6ErM0LGT+jKA54G/zP9phJ6MvKBA4nXfmxlPBISy5xzwwCHxSSZU/rmn+ARQXzpiz4yBykgBGezPPz5kmz2Shm46w43N5mgtln6TsjlU9jjFx9Oh1tmb8sjb88fgojd64D42M3QECcOnUte/gUgML1c0Iq0VotHIK4qXKLA9lu0Qb3jc+l3tGHhgGR0N1NU1kkJC6dQiMZVQPElg8bG0YMeK6lbW/bHvcoXRzX2LWhvQ8ouqzXIJwmxryTcvEs5L9LfMgjm9TDRZGX8XM2Fw0xrblkH6Y1PHW8iM48YJ/fDqK8HEXk+qIwFJcbMLR4lOr+sNPwKWFmVzQ4P7AjneUZpKQGLO8EJfJOXzlfgVyx+3FzCdpTQGi6cO99BcUbfqnhwcBq2d8HMfJ+tnnVSIJLrnL4ScmLT31YX',
                 'ctl00$CntntPlcHldr$ddlTerm' => $term,
                 'ctl00$CntntPlcHldr$ddlDept' => $major
             ]
