@@ -38,7 +38,7 @@ class Kernel extends ConsoleKernel
         //check for requests and send emails
         $schedule->call(function(){
             //sleep for 30 secs
-            sleep(30);
+            //sleep(30);
             //then do the job
             Request::notifyOpenCourses();
         })->everyMinute();
