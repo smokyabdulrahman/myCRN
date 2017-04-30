@@ -49,7 +49,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//Route::get('/update', ['uses' => 'registrarController@update']);
+Route::get('/update', ['uses' => 'registrarController@update']);
 //Route::get('/build', ['uses' => 'registrarController@build']);
 //Route::get('/notify', ['uses' => 'registrarController@notify']);
 Route::post('/createRequest', ['as' => 'createRequest', 'uses' => 'registrarController@create']);
